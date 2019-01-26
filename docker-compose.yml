@@ -1,0 +1,12 @@
+version: "3"
+services:
+  ndex-graphml:
+    image: sebwink/ndex-graphml 
+    build: .
+    environment:
+      HOST: '0.0.0.0'
+      PORT: 3000
+    volumes:
+      - ./server:/server
+    ports:
+      - '3000:3000/tcp'

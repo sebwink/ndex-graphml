@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "NDEx network API call with GraphML response",
+    "version": "1.0.0",
+    "title": "NDEx-GraphML API",
+    "contact": {
+      "email": "deregnet@informatik.uni-tuebingen.de"
+    },
+    "license": {
+      "name": "BSD 3-clause",
+      "url": "https://opensource.org/licenses/BSD-3-Clause"
+    }
+  },
+  "tags": [
+    {
+      "name": "Network",
+      "description": "NDEx network calls with GraphML response"
+    }
+  ],
+  "paths": {
+    "/network/{networkid}": {
+      "get": {
+        "tags": [
+          "Network"
+        ],
+        "summary": "Get Complete Network in GraphML Format",
+        "description": "- Returns the specified network as GraphML.\n- This is performed as a monolithic operation, so it is advisable for applications to first use the **getNetworkSummary** method to check the node and edge counts for a network before retrieving the network.\n",
+        "parameters": [
+          {
+            "name": "networkid",
+            "in": "path",
+            "description": "A unique identifier (UUID) given to the network acted upon, in the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. An example network UUID is entered below for demonstration purposes. It can be replaced with another network UUID, as needed.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "accesskey",
+            "in": "query",
+            "description": "(Optional) The access key UUID\n",
+            "required": false,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK: Operation successful."
+          },
+          "404": {
+            "description": "NOT FOUND: The object that was requested does not exist."
+          },
+          "500": {
+            "description": "ERROR: Catch-all bucket for http status codes that denote an error occurred. Check for malformed or incorrect parameters or request payloads."
+          }
+        }
+      }
+    }
+  }
+}

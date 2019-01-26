@@ -1,0 +1,3 @@
+[submodule "ndex_webapp_python_exporters"]
+	path = ndex_webapp_python_exporters
+	url = https://github.com/ndexbio/ndex_webapp_python_exporters

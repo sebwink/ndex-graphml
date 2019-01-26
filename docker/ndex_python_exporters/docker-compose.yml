@@ -1,0 +1,7 @@
+version: "3"
+services:
+  ndex-python-exporters:
+    image: sebwink/ndex-python-exporters
+    build:
+      context: ../..
+      dockerfile: ./docker/ndex_python_exporters/Dockerfile 
