@@ -103,7 +103,8 @@ app.get('/network/:networkid', async (req, res) => {
   }
   try {
     const graphml = await getGraphML(cxdata);
-    res.status(200);
+		res.status(200);
+		res.set('Content-Type', 'application/xml');
     res.send(graphml);
   } catch (error) {
     res.status(500);
